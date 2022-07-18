@@ -31,6 +31,25 @@ const Team = () => {
       .then((res) => res.json())
       .then((data) => setMLMembers(data));
   }, []);
+  const [cpMembers, setCpMembers] = useState([]);
+  useEffect(() => {
+    fetch("cpTeam.json")
+      .then((res) => res.json())
+      .then((data) => setCpMembers(data));
+  }, []);
+  const [graphicsMembers, setGraphicsMembers] = useState([]);
+  useEffect(() => {
+    fetch("graphicsTeam.json")
+      .then((res) => res.json())
+      .then((data) => setGraphicsMembers(data));
+  }, []);
+  const [contentMembers, setContentMembers] = useState([]);
+  useEffect(() => {
+    fetch("contentTeam.json")
+      .then((res) => res.json())
+      .then((data) => setContentMembers(data));
+  }, []);
+
   const [show, setShow] = useState(false);
   return (
     <div className="team-body">
@@ -97,6 +116,62 @@ const Team = () => {
             <EachAppMembers appMember={appMember}></EachAppMembers>
           ))}
         </div>
+        <div className="members">
+          {show
+            ? appMembers.map((appMember) => (
+                <EachAppMembers appMember={appMember}></EachAppMembers>
+              ))
+            : webMembers
+                .slice(0, 4)
+                .map((appMember) => (
+                  <EachAppMembers appMember={appMember}></EachAppMembers>
+                ))}
+        </div>
+        {show ? (
+          <button className="show-button" onClick={() => setShow(false)}>
+            Show less
+          </button>
+        ) : (
+          <button className="show-button" onClick={() => setShow(true)}>
+            Show All
+          </button>
+        )}
+      </div>
+      <div>
+        <h1 className="team-name">ML Team</h1>
+        <div className="one-members">
+          {MLMembers.slice(0, 1).map((mlMember) => (
+            <EachMlTeamMember mlMember={mlMember}></EachMlTeamMember>
+          ))}
+        </div>
+        <div className="members">
+          {show
+            ? appMembers.map((appMember) => (
+                <EachAppMembers appMember={appMember}></EachAppMembers>
+              ))
+            : webMembers
+                .slice(0, 4)
+                .map((appMember) => (
+                  <EachAppMembers appMember={appMember}></EachAppMembers>
+                ))}
+        </div>
+        {show ? (
+          <button className="show-button" onClick={() => setShow(false)}>
+            Show less
+          </button>
+        ) : (
+          <button className="show-button" onClick={() => setShow(true)}>
+            Show All
+          </button>
+        )}
+      </div>
+      <div>
+        <h1 className="team-name">Competitive Programming Team</h1>
+        {/* <div className="one-members">
+          {MLMembers.slice(0, 1).map((mlMember) => (
+            <EachMlTeamMember mlMember={mlMember}></EachMlTeamMember>
+          ))}
+        </div> */}
         <div className="members">
           {show
             ? appMembers.map((appMember) => (
