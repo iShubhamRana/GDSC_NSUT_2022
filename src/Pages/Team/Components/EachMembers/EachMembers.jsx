@@ -1,6 +1,5 @@
 import React from "react";
 import "./EachMembers.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const EachMembers = ({ member, webMember }) => {
   const name = member.name;
