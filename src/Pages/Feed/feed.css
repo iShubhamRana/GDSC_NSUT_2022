@@ -1,0 +1,84 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+.mainnn {
+  display: flex;
+  justify-content: center;
+}
+.feed-container {
+  justify-content: center;
+  max-width: 1500px;
+  margin: 3rem 15rem;
+}
+
+.feed-title {
+  font-size: 32px;
+  font-family: "inter";
+  margin: 45px 1.8rem;
+
+  font-weight: 400;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  justify-content: center;
+  padding: 0.3rem;
+  margin: 45px 0.5rem;
+  column-gap: 50px;
+  row-gap: 30px;
+}
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  transition: 200ms ease-in;
+  background-color: #4285f4;
+}
+.card-container:hover .overlay {
+  opacity: 0.7;
+}
+
+.card-container {
+  height: 25rem;
+
+  width: 25rem;
+  margin: 1rem;
+  position: relative;
+
+  cursor: pointer;
+  object-fit: contain;
+}
+
+.card-container img {
+  height: 25rem;
+  width: 25rem;
+}
+
+@media screen and (max-width: 1250px) {
+  .card-grid {
+    grid-template-columns: auto auto auto;
+  }
+}
+@media screen and (max-width: 920px) {
+  .card-grid {
+    grid-template-columns: auto auto;
+  }
+}
+@media screen and (max-width: 600px) {
+  .card-grid {
+    grid-template-columns: auto;
+  }
+  .feed-title {
+    font-size: 35px;
+    font-family: "inter";
+    text-align: center;
+    margin: 0 5px 0 0;
+    padding: 0;
+    font-weight: 400;
+  }
+}
